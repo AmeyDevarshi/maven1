@@ -17,10 +17,10 @@ pipeline {
                 batchFile 'mvn test'
             }
             post {
-                  always {
-                      junit '*.xml'//./jenkins/scripts/deliver.sh
-                  }
-              }
+//                   always {
+//                       junit '*.xml'//./jenkins/scripts/deliver.sh
+//                   }
+//               }
         }
         stage('Deliver') {
             steps {
