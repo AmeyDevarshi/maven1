@@ -6,27 +6,27 @@ pipeline {
               args '-v /root/.m2:/root/.m2'
           }
       }
-    stages {
-        stage('Build') {
-            steps {
-                batchFile 'mvn -B -DskipTests clean package'
-            }
-        }
-        stage('Test') {
-            steps {
-                batchFile 'mvn test'
-            }
-            post {
-                   always {
-                       junit 'target/surefire-reports/*.xml'//./jenkins/scripts/deliver.sh
-                   }
-               }
-        }
-        stage('Deliver') {
-            steps {
-                batchFile './jenkins/scripts/deliver.sh'
-            }
-        }
-    }
+//     stages {
+//         stage('Build') {
+//             steps {
+//                 batchFile 'mvn -B -DskipTests clean package'
+//             }
+//         }
+//         stage('Test') {
+//             steps {
+//                 batchFile 'mvn test'
+//             }
+//             post {
+//                    always {
+//                        junit 'target/surefire-reports/*.xml'//./jenkins/scripts/deliver.sh
+//                    }
+//                }
+//         }
+//         stage('Deliver') {
+//             steps {
+//                 batchFile './jenkins/scripts/deliver.sh'
+//             }
+//         }
+//     }
 }
 
