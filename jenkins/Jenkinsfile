@@ -6,12 +6,12 @@ pipeline {
               args '-v /root/.m2:/root/.m2'
           }
       }
-//     stages {
-//         stage('Build') {
-//             steps {
-//                 batchFile 'mvn -B -DskipTests clean package'
-//             }
-//         }
+    stages {
+         stage('Build') {
+             steps {
+                 echo 'Hello'
+             }
+         }
 //         stage('Test') {
 //             steps {
 //                 batchFile 'mvn test'
@@ -27,6 +27,6 @@ pipeline {
 //                 batchFile './jenkins/scripts/deliver.sh'
 //             }
 //         }
-//     }
+     }
 }
 
