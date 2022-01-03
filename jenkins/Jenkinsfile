@@ -11,6 +11,7 @@ pipeline {
              steps {
                  script {
                      batchFile 'docker build -t AmeyDevarshi/maven1'
+                     batchFile 'node --version'
                  }
              }
          }
