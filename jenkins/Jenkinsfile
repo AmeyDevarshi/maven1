@@ -26,7 +26,7 @@ pipeline {
          }
          stage('Deliver') {
              steps {
-                 batchFile './jenkins/scripts/deliver.sh'
+                 batchFile 'docker push AmeyDevarshi/maven1'
              }
          }
      }
