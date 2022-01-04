@@ -10,6 +10,7 @@ pipeline {
          stage('Build') {
              steps {
                  batchFile 'mvn clean package'
+                 batchFile 'docker build .'
                  //echo 'Hello!'
              }
          }
