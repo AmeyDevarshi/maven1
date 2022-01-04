@@ -9,27 +9,24 @@ pipeline {
     stages {
          stage('Build') {
              steps {
-                 script {
-                     batchFile 'docker build -t AmeyDevarshi/maven1'
-                     batchFile 'node --version'
-                 }
+                 batchFile 'mvn clean package'
              }
          }
-         stage('Test') {
-             steps {
-                 batchFile 'mvn test'
-             }
+//          stage('Test') {
+//              steps {
+//                  batchFile 'mvn test'
+//              }
 //              post {
 //                     always {
 //                         junit 'target/surefire-reports/*.xml'//./jenkins/scripts/deliver.sh
 //                     }
 //                 }
-         }
-         stage('Deliver') {
-             steps {
-                 batchFile 'docker push AmeyDevarshi/maven1'
-             }
-         }
+//          }
+//          stage('Deliver') {
+//              steps {
+//                  batchFile 'docker push AmeyDevarshi/maven1'
+//              }
+//          }
      }
 }
 
