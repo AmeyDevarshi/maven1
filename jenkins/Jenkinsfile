@@ -14,16 +14,16 @@ pipeline {
                   //echo 'Hello!'
               }
           }
-// //          stage('Test') {
-// //              steps {
-// //                  batchFile 'mvn test'
-// //              }
-// //              post {
-// //                     always {
-// //                         junit 'target/surefire-reports/*.xml'//./jenkins/scripts/deliver.sh
-// //                     }
-// //                 }
-// //          }
+          stage('Test') {
+              steps {
+                  batchFile 'mvn test'
+              }
+              post {
+                     always {
+                         junit 'target/surefire-reports/*.xml'//./jenkins/scripts/deliver.sh
+                     }
+                 }
+          }
 // //          stage('Deliver') {
 // //              steps {
 // //                  batchFile 'docker push AmeyDevarshi/maven1'
