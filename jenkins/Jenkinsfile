@@ -1,34 +1,73 @@
-pipeline {
-    agent any
-//     agent {
-//           docker {
-//               image 'maven:3-alpine'
-//               args '-v /root/.m2:/root/.m2'
-//           }
+// pipeline {
+//     agent any
+// //     agent {
+// //           docker {
+// //               image 'maven:3-alpine'
+// //               args '-v /root/.m2:/root/.m2'
+// //           }
+// //      }
+//     stages {
+//          stage('Build') {
+//              steps {
+//                  batchFile 'mvn clean package'
+//                  //batchFile 'docker build .'
+//                  //echo 'Hello!'
+//              }
+//          }
+// //          stage('Test') {
+// //              steps {
+// //                  batchFile 'mvn test'
+// //              }
+// //              post {
+// //                     always {
+// //                         junit 'target/surefire-reports/*.xml'//./jenkins/scripts/deliver.sh
+// //                     }
+// //                 }
+// //          }
+// //          stage('Deliver') {
+// //              steps {
+// //                  batchFile 'docker push AmeyDevarshi/maven1'
+// //              }
+// //          }
 //      }
-    stages {
-         stage('Build') {
-             steps {
-                 batchFile 'mvn clean package'
-                 batchFile 'docker build .'
-                 //echo 'Hello!'
-             }
-         }
-//          stage('Test') {
-//              steps {
-//                  batchFile 'mvn test'
-//              }
-//              post {
-//                     always {
-//                         junit 'target/surefire-reports/*.xml'//./jenkins/scripts/deliver.sh
-//                     }
-//                 }
-//          }
-//          stage('Deliver') {
-//              steps {
-//                  batchFile 'docker push AmeyDevarshi/maven1'
-//              }
-//          }
-     }
-}
+// }
 
+pipeline {
+  agent any
+
+  stages {
+    stage("Build") {
+      steps {
+        batchFile 'mvn -v'
+      }
+    }
+
+    stage("Testing") {
+      parallel {
+        stage("Unit Tests") {
+          agent { docker 'openjdk:7-jdk-alpine' }
+          steps {
+            batchFile 'java -version'
+          }
+        }
+        stage("Functional Tests") {
+          agent { docker 'openjdk:8-jdk-alpine' }
+          steps {
+            batchFile 'java -version'
+          }
+        }
+        stage("Integration Tests") {
+          steps {
+            batchFile 'java -version'
+          }
+        }
+      }
+    }
+
+    stage("Deploy") {
+      steps {
+        echo "Deploy!"
+      }
+    }
+  }
+}
