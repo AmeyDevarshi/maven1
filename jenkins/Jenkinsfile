@@ -9,14 +9,14 @@ pipeline {
      stages {
           stage('Build') {
               steps {
-                  command 'mvn clean package'
+                  batchFile 'mvn clean package'
                   //batchFile 'docker build .'
                   //echo 'Hello!'
               }
           }
           stage('Test') {
               steps {
-                  command 'mvn test'
+                  batchFile 'mvn test'
               }
 //               post {
 //                      always {
