@@ -18,11 +18,11 @@ pipeline {
               steps {
                   command 'mvn test'
               }
-              post {
-                     always {
-                         junit 'target/surefire-reports/*.xml'//./jenkins/scripts/deliver.sh
-                     }
-                 }
+//               post {
+//                      always {
+//                          junit 'target/surefire-reports/*.xml'//./jenkins/scripts/deliver.sh
+//                      }
+//                  }
           }
 // //          stage('Deliver') {
 // //              steps {
