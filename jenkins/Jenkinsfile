@@ -9,15 +9,15 @@ pipeline {
      stages {
           stage('Build') {
               steps {
-                  batchFile 'mvn package'
+                  //batchFile 'mvn package'
                   //batchFile 'docker build .'
-                  //echo 'Hello!'
+                  echo 'Hello!'
               }
           }
-          stage('Test') {
-              steps {
-                  batchFile 'mvn test'
-              }
+//           stage('Test') {
+//               steps {
+//                   batchFile 'mvn test'
+//               }
 //               post {
 //                      always {
 //                          junit 'target/surefire-reports/*.xml'//./jenkins/scripts/deliver.sh
