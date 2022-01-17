@@ -23,7 +23,7 @@ pipeline {
 //                          junit 'target/surefire-reports/*.xml'//./jenkins/scripts/deliver.sh
 //                      }
 //                  }
-          }
+//          }
 // //          stage('Deliver') {
 // //              steps {
 // //                  batchFile 'docker push AmeyDevarshi/maven1'
