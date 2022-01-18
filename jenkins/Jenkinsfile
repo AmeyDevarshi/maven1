@@ -26,8 +26,8 @@ pipeline {
           }
            stage('Deliver') {
                steps {
-                   sh 'docker build AmeyDevarshi/maven1'
-                   sh 'docker run AmeyDevarshi/maven1' 
+                   sh 'docker build my-app 1.0-SNAPSHOT'
+//                    sh 'docker run AmeyDevarshi/maven1' 
                }
            }
       }
