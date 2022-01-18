@@ -10,7 +10,7 @@ pipeline {
           stage('Build') {
               steps {
                   sh 'mvn package'
-                  sh 'docker build'
+                  sh 'docker build *.jar'
                   //batchFile 'docker build .'
                   //echo 'Hello!'
               }
