@@ -16,7 +16,7 @@ pipeline {
           }
            stage('Test') {
                steps {
-                   batchFile 'mvn test'
+                   sh 'mvn test'
                }
                post {
                       always {
@@ -24,11 +24,12 @@ pipeline {
                       }
                   }
           }
-//           stage('Deliver') {
-//               steps {
-//                   batchFile 'docker push AmeyDevarshi/maven1'
-//               }
-//           }
+           stage('Deliver') {
+               steps {
+                   sh 'docker build '
+                   sh 'docker run' 
+               }
+           }
       }
  }
 
