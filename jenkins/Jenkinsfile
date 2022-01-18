@@ -10,6 +10,7 @@ pipeline {
           stage('Build') {
               steps {
                   sh 'mvn package'
+                  sh 'docker build'
                   //batchFile 'docker build .'
                   //echo 'Hello!'
               }
@@ -24,12 +25,12 @@ pipeline {
                       }
                   }
           }
-           stage('Deliver') {
-               steps {
-                   sh 'docker build https://github.com/AmeyDevarshi/maven1.git#container:docker'
-//                    sh 'docker run AmeyDevarshi/maven1' 
-               }
-           }
+//            stage('Deliver') {
+//                steps {
+//                    sh 'docker build https://github.com/AmeyDevarshi/maven1.git#container:docker'
+// //                    sh 'docker run AmeyDevarshi/maven1' 
+//                }
+//            }
       }
  }
 
